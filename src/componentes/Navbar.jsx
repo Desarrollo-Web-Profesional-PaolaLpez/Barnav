@@ -5,6 +5,7 @@ import { ImBooks } from "react-icons/im";
 import { MdMenu } from "react-icons/md";
 import { PiShoppingCartLight } from "react-icons/pi";
 import MenuResponsivo from "./MenuResponsivo";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [abierto, setAbierto] = useState(false);
@@ -65,6 +66,7 @@ const Navbar = () => {
 
       {/* Menú Responsivo */}
       <MenuResponsivo open={abierto} navbarLinks={navbarLinks} />
+
     </>
   )
 }
