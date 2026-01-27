@@ -1,5 +1,4 @@
-# Etapa 1: Construcción (Build)
-# 10
+
 FROM node:20-alpine AS build
 WORKDIR /app
 COPY package*.json ./
@@ -7,12 +6,12 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# Etapa 2: Servidor de Producción (Nginx)
+# Etapa 2: Servir con Nginx
 FROM nginx:stable-alpine
-# Copiamos los archivos compilados desde la etapa 'build'
-# Si usas Vite es 'dist', si usas CRA es 'build'
+# Copiamos archivos compilados
 COPY --from=build /app/dist /usr/share/nginx/html
-# Copiamos una configuración personalizada de Nginx si es necesario
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copiamos configuración personalizada de Nginx
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

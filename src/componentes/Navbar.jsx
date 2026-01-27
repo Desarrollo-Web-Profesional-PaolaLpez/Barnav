@@ -48,9 +48,12 @@ const Navbar = () => {
               <PiShoppingCartLight />
             </button>
 
-            <button className="hover:bg-primary font-semibold rounded-md text-white bg-secondary px-4 py-2 duration-300 border-primary hidden md:block">
-              Ingresar
+            <NavLink to="/login" className="hidden md:block">
+            <button className="hover:bg-primary font-semibold rounded-md text-white bg-secondary px-4 py-2 duration-300 border-primary">
+            Ingresar
             </button>
+            </NavLink>
+
           </div>
 
           {/* Sección Móvil */}
